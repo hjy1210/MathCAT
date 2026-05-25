@@ -68,8 +68,8 @@
 
     # words for moving into and out of one of the parts (e.g., "move right 'out of' numerator, 'in' denominator")
     # it's a hack to put them here, but at least they are grouped with the other navigation parts
-    "in": "放大",
-    "out": "縮小",
+    "in": "進入",
+    "out": "退出",
   }
 
 
