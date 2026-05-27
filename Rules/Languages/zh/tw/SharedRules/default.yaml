@@ -406,7 +406,7 @@
   - NumColumns: "count(*[1]/*) - IfThenElse(*/self::m:mlabeledtr, 1, 0)"
   match: "."
   replace:
-  - T: "表"      # phrase(the 'table with' 3 rows)
+  - T: "表格有"      # phrase(the 'table with' 3 rows)
   - x: count(*)
   - test:
       if: count(*)=1

@@ -56,7 +56,7 @@
           - if: "starts-with($NavCommand, 'Zoom')"
             then: [set_variables: [Prefix: "' '"]]          # phrase('zoom' in to see more details)   #hjy -- 'zoom' is a bit weird in Chinese, so skip it.  
           - else_if: "starts-with($NavCommand, 'Move')"
-            then: [set_variables: [Prefix: "'移至'"]]          # phrase('move' to next entry in table)     
+            then: [set_variables: [Prefix: "'移到'"]]          # phrase('move' to next entry in table)     
           - else_if: "starts-with($NavCommand, 'Read')"
             then: [set_variables: [Prefix: "'讀出'"]]          # phrase('read' to next entry in table)     
           - else_if: "starts-with($NavCommand, 'Describe')"
@@ -191,9 +191,9 @@
         - else_if: "$PreviousNavCommand = 'ZoomOutAll'"
           then: [T: "復原完全縮小"]       # phrase('undo zooming out all the way')
         - else_if: "$PreviousNavCommand = 'MovePrevious' or $PreviousNavCommand = 'MovePreviousZoom'"
-          then: [T: "復原移至上一項"]                     # phrase('undo move left')
+          then: [T: "復原移到上一項"]                     # phrase('undo move left')
         - else_if: "$PreviousNavCommand = 'MoveNext' or $PreviousNavCommand = 'MoveNextZoom'"
-          then: [T: "復原移至下一項"]                    # phrase('undo move right')
+          then: [T: "復原移到下一項"]                    # phrase('undo move right')
         - else_if: "$PreviousNavCommand = 'None'"
           then: [T: "沒有前一指令"]                # phrase('no previous command')
       - pause: "medium"
@@ -395,7 +395,7 @@
       variables: [SayCommand: "string($NavVerbosity = 'Verbose')"]
       replace: [x: "."]
   - with:
-      variables: [Move2D: "'退出'", Child2D: "."]
+      variables: [Move2D: "'離開'", Child2D: "."]
       replace: [x: ".."]
   - x: ".."
 
@@ -485,7 +485,7 @@
       then: [x: ".."] # auto-zoom: move out a level and retry
       else:
       - with:
-          variables: [Move2D: "'退出'", Child2D: "."]
+          variables: [Move2D: "'離開'", Child2D: "."]
           replace: [x: ".."]
       - test:
           if: "parent::m:mtd"
@@ -509,12 +509,12 @@
           then:
           - test:
             - if: "$NavCommand = 'MoveStart'"
-              then: [T: "移至數學式開頭"]                  # phrase('move to start of math')
+              then: [T: "移到數學開頭"]                  # phrase('move to start of math')
             - else_if: "$NavCommand = 'MoveLineStart'"
-              then: [T: "移至行首"]                  # phrase('move to start of line')
+              then: [T: "移到行首"]                  # phrase('move to start of line')
             - else_if: "$NavCommand = 'MoveEnd'"
-              then: [T: "移至數學式結尾"]                    # phrase('move to end of math')
-              else: [T: "移至行尾"] # "$NavCommand = 'MoveLineEnd'"  # phrase('move to end of line')
+              then: [T: "移到數學結尾"]                    # phrase('move to end of math')
+              else: [T: "移到行尾"] # "$NavCommand = 'MoveLineEnd'"  # phrase('move to end of line')
           - pause: "medium"
       - test:
           if: "$NavCommand = 'MoveStart' or $NavCommand = 'MoveLineStart'"
@@ -554,8 +554,8 @@
       then:
       - test:
           if: "$NavCommand = 'MoveLineStart'"
-          then: [T: "移至行首"]                                # phrase('move to start of line')
-          else: [T: "移至行尾"] # "$NavCommand = 'MoveLineEnd'"  # phrase('move to end of line')
+          then: [T: "移到行首"]                                # phrase('move to start of line')
+          else: [T: "移到行尾"] # "$NavCommand = 'MoveLineEnd'"  # phrase('move to end of line')
       - pause: "medium"
   - test:
       if: "self::m:mrow or @data-from-mathml = 'mrow'"
@@ -605,7 +605,7 @@
       - test:
           if: "$NavVerbosity = 'Verbose'"
           then:
-          - T: "移至上一項"                        # phrase('move left')
+          - T: "移到上一項"                        # phrase('move left')
           - pause: short
       - test:
           if: "$NavVerbosity != 'Terse'"
@@ -635,7 +635,7 @@
       - test:
           if: "$NavVerbosity = 'Verbose'"
           then:
-          - T: "移至下一項"                     # phrase('move right')
+          - T: "移到下一項"                     # phrase('move right')
           - pause: short
       - test:
           if: "$NavVerbosity != 'Terse'"
@@ -668,7 +668,7 @@
           - test:
               if: "$NavVerbosity = 'Verbose'"
               then:
-              - T: "移至上一格"                             # phrase('move up' to previous row in the table)
+              - T: "移到上一格"                             # phrase('move up' to previous row in the table)
               - pause: short
           - test:
               if: "$NavVerbosity != 'Terse'"
@@ -704,7 +704,7 @@
           - test:
               if: "$NavVerbosity = 'Verbose'"
               then:
-              - T: "移至下一格"                          # phrase('move down to the next row in the table)
+              - T: "移到下一格"                          # phrase('move down to the next row in the table)
               - pause: short
           - test:
               if: "$NavVerbosity != 'Terse'"
@@ -734,7 +734,7 @@
   - test:
       if: "$NavVerbosity = 'Verbose'"
       then:
-      - T: "移至上一列"                              # phrase('move to previous row' to the previous row in the table)
+      - T: "移到上一列"                              # phrase('move to previous row' to the previous row in the table)
       - pause: medium
   - test:
       if: "preceding-sibling::*"
@@ -758,7 +758,7 @@
   - test:
       if: "$NavVerbosity = 'Verbose'"
       then:
-      - T: "移至下一列"                          # phrase('move to next row' to the next row in the table)
+      - T: "移到下一列"                          # phrase('move to next row' to the next row in the table)
       - pause: medium
   - test:
       if: "following-sibling::*"
@@ -783,7 +783,7 @@
   - test:
       if: "$NavVerbosity = 'Verbose'"
       then:
-      - T: "移至左一行"                              # phrase('move to previous column' to the previous row in the table)
+      - T: "移到左一行"                              # phrase('move to previous column' to the previous row in the table)
       - pause: medium
   - T: "沒有左一行"                          # phrase('no previous column' in the table)
   - set_variables: [SpeakExpression: "'false'"]
@@ -796,7 +796,7 @@
   - test:
       if: "$NavVerbosity = 'Verbose'"
       then:
-      - T: "移至右一行"                              # phrase('move to next column' to the next row in the table)
+      - T: "移到右一行"                              # phrase('move to next column' to the next row in the table)
       - pause: medium
   - T: "沒有右一行"                          # phrase('no next column' in the table)
   - set_variables: [SpeakExpression: "'false'"]
@@ -814,7 +814,7 @@
           - test:
               if: "$NavVerbosity = 'Verbose'"
               then:
-              - T: "讀出當前項目"                         # phrase('read current entry' in the table)
+              - T: "讀出目前項目"                         # phrase('read current entry' in the table)
               - pause: medium
           - test:
               if: "$NavVerbosity != 'Terse'"
@@ -1144,7 +1144,7 @@
   - test:
       if: "$MatchCounter = 0 and $NavVerbosity = 'Verbose'"
       then:
-      - T: "不能移至下一項"                              # phrase('cannot move right')
+      - T: "無法移到下一項"                              # phrase('cannot move right')
       - pause: medium
   - with:
       variables:
@@ -1165,16 +1165,16 @@
   - test:
       if: "$MatchCounter = 0 and $NavVerbosity = 'Verbose'"
       then:
-      - T: "不能"                                          # phrase('cannot' move right in expression)
+      - T: "無法"                                          # phrase('cannot' move right in expression)
       - test:
         - if: "$NavCommand = 'MoveNext'"
-          then: [T: "移至"]                                  # phrase('move' to next entry in table)     
+          then: [T: "移到"]                                  # phrase('move' to next entry in table)     
         - else_if: "$NavCommand = 'ReadNext'"
           then: [T: "讀出"]                                  # phrase('read' next entry in table)     
           else: [T: "描述"]                              # phrase('describe' next entry in table)     
       - T: "下一項"                              # phrase(move 'right')
       - pause: short
-  - T: "數學式結尾"                              # phrase(move 'end of math')
+  - T: "數學結尾"                              # phrase(move 'end of math')
   - pause: long
   - set_variables: [SpeakExpression: "'false'"]
 
@@ -1201,7 +1201,7 @@
           replace: [x: ".."]
       else:
       - with:
-          variables: [Move2D: "'退出'", Child2D: "."]
+          variables: [Move2D: "'離開'", Child2D: "."]
           replace: [x: ".."]
   - x: ".."
 
@@ -1282,7 +1282,7 @@
       if: "preceding-sibling::* and following-sibling::*[1][name(.)='none']"
       then:
       - with:
-          variables: [Move2D: "'退出'", Child2D: "."]
+          variables: [Move2D: "'離開'", Child2D: "."]
           replace: [x: ".."]
       - x: "following-sibling::*[1]"
       else:
@@ -1339,7 +1339,7 @@
   - test:
       if: "$MatchCounter = 0 and $NavVerbosity = 'Verbose' and $NavCommand = 'MovePrevious'"
       then:
-      - T: "不能移至上一項"                                   # phrase('cannot move left' in expression)
+      - T: "無法移到上一項"                                   # phrase('cannot move left' in expression)
       - pause: medium
   - with:
       variables:
@@ -1356,7 +1356,7 @@
   - "($NavCommand = 'MovePrevious' or $NavCommand = 'ReadPrevious' or $NavCommand = 'DescribePrevious') and"
   - "(self::m:math or name(EdgeNode(., 'left', 'math'))='math')"
   replace:
-  - T: "數學式開頭"                                              # phrase('start of math')
+  - T: "數學開頭"                                              # phrase('start of math')
   - pause: long
   - set_variables: [SpeakExpression: "'false'"]
 
@@ -1369,7 +1369,7 @@
   - test:
       if: "$MatchCounter = 0 and $NavVerbosity = 'Verbose'"
       then:
-      - T: "不能移至上一項"                      # phrase('cannot move left')
+      - T: "無法移到上一項"                      # phrase('cannot move left')
       - pause: short
   - with:
       variables: [Move2D: "'start of'", Child2D: "."]
@@ -1400,7 +1400,7 @@
           replace: [x: ".."]
       else:
       - with:
-          variables: [Move2D: "'退出'", Child2D: "."]
+          variables: [Move2D: "'離開'", Child2D: "."]
           replace: [x: ".."]
   - x: ".."
 
@@ -1490,7 +1490,7 @@
       if: "count(preceding-sibling::*) > 2 and preceding-sibling::*[1][name(.)='none']"
       then:
       - with:
-          variables: [Move2D: "'退出'", Child2D: "."]
+          variables: [Move2D: "'離開'", Child2D: "."]
           replace: [x: ".."]
       - x: "preceding-sibling::*[1]"          # skip over 'none'
       else:
@@ -1599,7 +1599,7 @@
         - if: "$NavCommand = 'ReadCurrent'"
           then: [T: "讀出"]                                  # phrase('read' next entry in table) 
           else: [T: "描述"]                              # phrase('describe' next entry in table)     
-      - T: "當前"                                         # phrase('current' entry in table)
+      - T: "目前"                                         # phrase('current' entry in table)
       - pause: long
   - set_variables: [NavNode: "@id"]
 
@@ -1621,7 +1621,7 @@
         - else_if: "starts-with($NavCommand, 'Describe')"
           then: [T: "描述"]                              # phrase('describe' next entry in table)     
         - else_if: "starts-with($NavCommand, 'MoveTo')"
-          then: [T: "移至"]                              # phrase('move to' the next entry in table) 
+          then: [T: "移到"]                              # phrase('move to' the next entry in table) 
           else: [T: "設定"]                                   # phrase('set' the value of the next entry in table) 
       - T: "佔位符"                                     # phrase('placeholder' for the value)
       - x: "$PlaceMarkerIndex"

@@ -69,7 +69,7 @@
     # words for moving into and out of one of the parts (e.g., "move right 'out of' numerator, 'in' denominator")
     # it's a hack to put them here, but at least they are grouped with the other navigation parts
     "in": "進入",
-    "out": "退出",
+    "out": "離開",
   }
 
 
@@ -90,7 +90,7 @@
     "g": "克",
     "m": "米",     # British spelling works for US also
     "mol": "莫耳",
-    "s": "秒", "″": "秒", "\"": "秒", "sec": "秒",  # "sec" not actually legal
+    "s": "秒", "sec": "秒",  # "sec" not actually legal
 
     # derived units
     "Bq": "貝克",
