@@ -8,8 +8,8 @@ These helpers normalize captured renderer/CLI output so tests compare the text
 users see, not terminal control bytes.
 """
 
-import sys
 import re
+import sys
 
 import pytest
 

@@ -75,7 +75,10 @@ def print_warnings(
     console.print()
     console.rule(style="cyan")
     console.print(f"[{style}]{icon}[/] [bold]{escape(display_name)}[/]")
-    console.print(f"  [dim]{source_label}: {result.english_rule_count} rules  →  {target_label}: {result.translated_rule_count} rules[/]")
+    console.print(
+        f"  [dim]{source_label}: {result.english_rule_count} rules  →  "
+        f"{target_label}: {result.translated_rule_count} rules[/]"
+    )
     console.rule(style="cyan")
 
     grouped_issues: dict[str, dict[str, Any]] = {}
@@ -138,7 +141,8 @@ def print_warnings(
                     else:
                         diff: RuleDifference = entry["diff"]
                         console.print(
-                            f"              [dim]•[/] [dim](line {entry['line_en']} {source_label}, {entry['line_tr']} {target_label})[/]"
+                            f"              [dim]•[/] [dim](line {entry['line_en']} {source_label}, "
+                            f"{entry['line_tr']} {target_label})[/]"
                         )
                         console.print(f"                  [dim]{diff.description}[/]")
                         if verbose:
