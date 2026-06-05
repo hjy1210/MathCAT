@@ -294,7 +294,7 @@ def test_audit_language_uses_configurable_source_language(tmp_path, fixed_consol
     assert "(line 6 in sv)" in output
     assert "Extra in Translation [1]" in output
     assert "(line 6 in nb)" in output
-    assert 'Untranslated Text [1]' in output
+    assert "Untranslated Text [1]" in output
     assert '(line 5 nb) "target"' in output
     assert "Match Pattern Differences [1]" in output
     assert "(line 3 sv, 3 nb)" in output
