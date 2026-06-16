@@ -597,11 +597,16 @@ pub fn get_navigation_node_from_braille_position(mathml: Element, position: usiz
             if text == "\u{2061}" || text == "\u{2062}"  {       // invisible function apply/times (most common by far)
                 return 0;
             }
-            // FIX: this assumption is bad for 8-dot braille
-            return match leaf_name {
-                "mn" => n_number_indicator + text.len(),
-                "mo" => 2,  // could do better by actually brailling char, but that is more expensive
-                _ => text.len(),
+            // We can't know what encoding the user is using for LaTeX and ASCIIMath -- assume 8-dot braille
+            let braille_code = PreferenceManager::get().borrow().pref_to_string("BrailleCode");
+            if braille_code == "LaTeX" || braille_code == "ASCIIMath" {
+                return text.len();
+            } else {    
+                return match leaf_name {
+                    "mn" => n_number_indicator + text.len(),
+                    "mo" => 2,  // could do better by actually brailling char, but that is more expensive
+                    _ => text.len(),
+                }
             }
         }
         let mut estimate = if leaf_name == "mrow" {0} else {node.children().len() + 1};     // guess extra chars need for mfrac, msub, etc (start+intermediate+end).
@@ -2443,7 +2448,6 @@ impl BrailleChars {
             Regex::new(r"(?P<face>[SB𝔹TIR]*)(?P<lang>[EDGVHU]?)(?P<cap>C?)(?P<letter>L?)(?P<num>[N]?)(?P<char>.)").unwrap()
         });
         let math_variant = node.attribute_value("mathvariant");
-        // FIX: cover all the options -- use phf::Map
         let  attr_typeface = match math_variant {
             None => "R",
             Some(variant) => match variant {
