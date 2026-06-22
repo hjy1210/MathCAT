@@ -62,6 +62,8 @@
 
  - "0-9": [T: "."]                              	# 	(en: '.', google translation)
 
+ - " ": [t: " "]                     # 0x20
+
  - "!":                                         	#  0x21
     - test:
         if: "ancestor-or-self::*[contains(@data-intent-property, ':literal:')]"
@@ -111,7 +113,11 @@
             - "( following-sibling::*[1][text()!= '…'] and preceding-sibling::*[1][text()!='…']  ) or "
                # except if expression starts with '…'
             - "../*[1][.='…'] "
-        then: [T: "逗號"]                         	# 	(en: 'comma', google translation)
+        then: 
+        - T: "逗號"                         	# 	(en: 'comma', google translation)
+        - test:
+            if: "$Verbosity != Terse"
+            then: []                # pause: short
         # else silent
 
  - "-": [T: "減"]                                	#  0x2d	(en: 'minus')
@@ -120,7 +126,12 @@
         if: "parent::*[1][self::m:mn]"
         then: [T: "點"]                         	# 	(en: 'point', google translation)
         else: [T: "點"]                          	# 	(en: 'dot', google translation)
- - "/": [T: "除以"]                               	#  0x2f	(en: 'divided by')
+ - "/":
+    - test:
+        if: "ancestor-or-self::*[contains(@data-intent-property, ':literal:')]"
+        then: [t: "slash"]                        # 0x2f
+        else: [t: "除以"]                   # 0x2f
+
  - ":": [T: "冒號"]                               	#  0x3a	(en: 'colon')
  - ";": [T: "分號"]                               	#  0x3b	(en: 'semicolon', google translation)
  - "<":                                         	#  0x3c
@@ -152,7 +163,11 @@
         if: $SpeechStyle = 'ClearSpeak' or $SpeechStyle = 'SimpleSpeak'
         then: [T: "右中括"]                       	# 	(en: 'close bracket', google translation)
         else: [T: "右中括"]                        	# 	(en: 'right bracket')
- - "^": [T: "hat"]                               	#  0x5e	(en: 'hat', google translation)
+ - "^":
+    - test:
+        if: "parent::m:modified-variable or parent::m:mover"
+        then: [t: "hat"]
+        else: [t: "caret"]
  - "_": [T: "under bar"]                             	#  0x5f	(en: 'under bar', google translation)
  - "`": [T: "grave"]                                	#  0x60	(en: 'grave', google translation)
  - "{":                                         	#  0x7b
@@ -166,16 +181,18 @@
         variables: [DefaultToGiven: "count(preceding-sibling::*)=1 and count(following-sibling::*)=1 and ../../../*[1][.='P']"] # P(A|B)
         replace:
          - test:
-            - if: "$SpeechStyle != 'ClearSpeak'"
+            - if: "ancestor-or-self::*[contains(@data-intent-property, ':literal:')]"
+              then: [t: "豎線"]
+            - else_if: "$SpeechStyle != 'ClearSpeak'"
               then_test:
                 - if: "$DefaultToGiven"
                   then: [T: "給定"]                         #       (en: 'given', google translation)
                 - else_if: "preceding-sibling::*[1][self::m:mn and not(contains(., $DecimalSeparators))] and 
                             following-sibling::*[1][self::m:mn and not(contains(., $DecimalSeparators))]"
                   then: [T: "整除"]                         #       (en: 'divides')
-                  else: [T: "垂線"]                         #       (en: 'vertical line', google translation)
+                  else: [T: "豎線"]                         #       (en: 'vertical line', google translation)
             - else_if: "not(preceding-sibling::*) or not(following-sibling::*)"
-              then: [T: "垂線"]                             #       (en: 'vertical line', google translation
+              then: [T: "豎線"]                             #       (en: 'vertical line', google translation
             - else_if: "$ClearSpeak_VerticalLine = 'SuchThat'"
               then: [T: "滿足"]                             #       (en: 'such that', google translation)
             - else_if: "$ClearSpeak_VerticalLine = 'Given' or $DefaultToGiven"
@@ -191,7 +208,8 @@
  - "~": [T: "tilde"]                              	#  0x7e	(en: 'tilde', google translation)
  - " ":                                         	#  0xa0
     - test:
-        if: "@data-empty-in-2D and ../../../../*[name(.)!='equations']"
+        # could be mtext in mtd or mtext in an mrow that is a concatenation of mtd's. Is there a better solution?
+        if: "@data-empty-in-2D and not(ancestor::*[self::m:piecewise or self::m:system-of-equations or self::m:lines])"
         then: [T: "無"]                         	#  want to say something for fraction (etc) with empty child	(en: 'empty', google translation)
         else: [T: ""]                            
 
@@ -201,17 +219,23 @@
  - "´": [T: "acute"]                               	#  0xb4	(en: 'acute', google translation)
  - "·":                                         	#  0xB7
     - test:
-        if: "$SpeechStyle != 'ClearSpeak' or $ClearSpeak_MultSymbolDot = 'Auto'"
+        if: "ancestor-or-self::*[contains(@data-intent-property, ':literal:')] or not($SpeechStyle = 'ClearSpeak' and $ClearSpeak_MultSymbolDot = 'Auto')"
         then: [T: "乘"]                         	# 	(en: 'times', google translation)
         else: [T: "dot"]                         	# 	(en: 'dot')
- - "×":                                         	#  0xd7
+ - "×":                                          # 0xd7
     - test:
-        if: "$SpeechStyle != 'ClearSpeak' or $ClearSpeak_MultSymbolX = 'Auto'"
-        then: [T: "乘"]                         	# 	(en: 'times', google translation)
+        if: "$SpeechStyle = 'ClearSpeak'"
+        then_test:
+        - if: "$ClearSpeak_MultSymbolX = 'Auto'"
+          then: [t: "乘"]
+        - else_if: "$ClearSpeak_MultSymbolX = 'By'"
+          then: [t: "乘"]
+          else: [t: "cross"]
         else_test:
-            if: $ClearSpeak_MultSymbolX = 'By'
-            then: [T: "乘"]                     	# 	(en: 'by', google translation)
-            else: [T: "乘"]                     	# 	(en: 'cross')
+            if: "ancestor-or-self::*[contains(@data-intent-property, ':literal:')]"
+            then: [t: "cross"]
+            else: [t: "乘"]
+
  - "÷": [T: "除以"]                               	#  0xf7	(en: 'divided by')
  - "̀": [t: "grave accent embellishment"]                          	#  0x300	(en: 'grave accent embellishment', google translation)
  - "́": [t: "acute accent embellishment"]                           	#  0x301	(en: 'acute accent embellishment', google translation)
@@ -276,7 +300,7 @@
  - "–": [T: "en dash"]                          	#  0x2013	(google translation)
  - "—": [T: "em dash"]                          	#  0x2014	(google translation)
  - "―": [T: "單槓"]                               	#  0x2015	(en: 'horizontal bar', google translation)
- - "‖": [T: "雙垂直線"]                              #  0x2016	(en: 'double vertical line', google translation)
+ - "‖": [T: "雙豎線"]                              #  0x2016	(en: 'double vertical line', google translation)
  - "…":                                         	#  0x2026
     test:
         if:
@@ -290,7 +314,19 @@
             then: [T: "等等"]                     	# 	(en: 'and so on', google translation)
             else: [T: "等等"]                     	# 	(en: 'and so on up to', google translation)
 
- - "⁡": [T: ""]                                  	# 	(en: 'of', google translation)
+ - "⁡":                                          # 0x2061
+    - test:
+        # skip saying "of" when Terse and a trig function, when it is a shape (does this happen?), or we are in :literal mode
+        if: "not(
+              ( $Verbosity='Terse' or ($SpeechStyle = 'ClearSpeak' and IsNode(following-sibling::*[1],'simple')) and
+                preceding-sibling::*[1][IfThenElse($SpeechStyle='ClearSpeak',
+                                                   IsInDefinition(., 'ClearSpeakTrigFunctionNames'),
+                                                   IsInDefinition(., 'TrigFunctionNames') )]
+              ) or
+              preceding-sibling::*[1][IsInDefinition(., 'GeometryShapes')] or
+              (@data-changed='added' and ancestor-or-self::*[contains(@data-intent-property, ':literal:')])
+            )"
+        then: [t: ""]
  - "⁢": [t: ""]                                 	#  0x2062
  - "⁣": [t: ""]                                 	#  0x2063
  - "⁤": [T: "又"]                                	#  0x2064	(en: 'and', google translation)(3 又 1/2)
@@ -346,7 +382,11 @@
  - "∈":                                         	#  0x2208
      - test:
         if: "$SpeechStyle != 'ClearSpeak'"
-        then: [T: "屬於"]                       	# 	(en: 'an element of', google translation)
+        then:
+        - test:
+            if: "$Verbosity!='Terse' and not(ancestor::*[self::m:set])"    # "the set x is an element of ..." sounds bad"
+            then: [t: ""]
+        - t: "屬於"   # 	(en: 'an element of', google translation)
         # Several options for speaking elements in ClearSpeak -- they split between being inside a set or not and then the option
         else_test:
             if: "../../self::m:set or ../../../self::m:set"	#  inside a set
@@ -370,7 +410,11 @@
     # rule is identical to 0x2208
      - test:
         if: "$SpeechStyle != 'ClearSpeak'"
-        then: [t: "不屬於"]                     	# 	(en: 'is not an element of', google translation)
+        then:
+        - test: 
+            if: "$Verbosity!='Terse'"
+            then: [t: ""]
+        - t: "不屬於"          # 	(en: 'is not an element of', google translation)
         # Several options for speaking elements in ClearSpeak -- they split between being inside a set or not and then the option
         else_test:
             if: "../../self::m:set or ../../../self::m:set"	#  inside a set
@@ -393,7 +437,11 @@
  - "∊":                                         	#  0x220a
      - test:
         if: "$SpeechStyle != 'ClearSpeak'"
-        then: [T: "屬於"]                      	# 	(en: 'is an element of', google translation)
+        then:
+        - test: 
+            if: "$Verbosity!='Terse' and not(ancestor::*[self::m:set])"    # "the set x is an element of ..." sounds bad"
+            then: [t: ""]
+        - t: "屬於"            # 	(en: 'is an element of', google translation)
         # Several options for speaking elements in ClearSpeak -- they split between being inside a set or not and then the option
         else_test:
             if: "../../self::m:set or ../../../self::m:set"	#  inside a set
@@ -437,10 +485,14 @@
  - "∣": [T: "整除"]                                	#  0x2223	(en: 'divides')
  - "∤": [T: "不整除"]                               	#  0x2224	(en: 'does not divide')
  - "∥":                                         	#  0x2225
-     - test: 
-         if: "$Verbosity!='Terse'"
-         then: [T: ""]                         	# 	(en: 'is', google translation)
-     - T: "平行"                                  	# 	(en: 'parallel to')
+     - test:
+         if: "ancestor-or-self::*[contains(@data-intent-property, ':literal:')]"
+         then: [t: "雙豎線"]
+         else:
+         - test:
+              if: "$Verbosity!='Terse'"
+              then: [t: ""]
+         - t: "平行"
  - "∦":                                         	#  0x2226
      - test: 
          if: "$Verbosity!='Terse'"

@@ -225,7 +225,7 @@ fn no_times_sqrt() -> Result<()> {
         <msqrt> <mrow>  <mi>a</mi><mi>b</mi></mrow> </msqrt>
         </mrow></math>";
     test("zh-tw", "SimpleSpeak", expr, 
-            "根號 a, 根號 b; 等於, 根號 a b 結束根號")?;
+            "根號 a, 乘 根號 b; 等於, 根號 a b 結束根號")?;
             return Ok(());
 
 }
@@ -254,7 +254,7 @@ fn no_times_sqrt() -> Result<()> {
         <mrow><mi>x</mi><mi>y</mi></mrow>
         <mo>)</mo></mrow>
         </mrow></math>";
-        test("zh-tw", "SimpleSpeak", expr, "b x y")?;
+        test("zh-tw", "SimpleSpeak", expr, "b, 左小括 x y 右小括")?;
         return Ok(());
 
     }

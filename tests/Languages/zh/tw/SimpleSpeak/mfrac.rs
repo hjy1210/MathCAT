@@ -232,7 +232,7 @@ fn nested_simple_fractions() -> Result<()> {
                 </mfrac>
                 </mrow>
             </math>";
-    test("zh-tw", "SimpleSpeak", expr, "分數 分數 3 分之 2 結束分數; 分之, 分數 2 分之 1 結束分數; 結束分數")?;
+    test("zh-tw", "SimpleSpeak", expr, "分數 3 分之 2, 分之, 2 分之 1 結束分數")?;
     return Ok(());
 
 }
