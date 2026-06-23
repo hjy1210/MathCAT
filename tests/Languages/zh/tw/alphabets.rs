@@ -51,6 +51,8 @@ fn parenthesized() -> Result<()> {
 fn circled() -> Result<()> {
     let expr = "<math> <mi>Ⓐ</mi><mo>,</mo><mi>Ⓩ</mi></math>";
     test("zh-tw", "SimpleSpeak", expr, "圈圈 大寫 a 逗號 圈圈 大寫 z")?;
+    let expr = "<math> <mi>🅐</mi><mo>,</mo><mi>🅩</mi></math>";
+    test("zh-tw", "SimpleSpeak", expr, "黑圈圈 大寫 a 逗號 黑圈圈 大寫 z")?;
     let expr = "<math> <mi>ⓐ</mi><mo>,</mo><mi>ⓩ</mi></math>";
     test("zh-tw", "SimpleSpeak", expr, "圈圈 a 逗號 圈圈 z")?;
     return Ok(());
@@ -390,9 +392,18 @@ fn turned() -> Result<()> {
   }
 
 #[test]
+fn unicode_typo_regressions() -> Result<()> {
+  test("zh-tw", "SimpleSpeak", "<math><mi>ⁱ</mi></math>", "上標1")?;
+  test("zh-tw", "SimpleSpeak", "<math><mi>☌</mi></math>", "conjunction")?;
+  Ok(())
+}
+
+#[test]
 fn enclosed_numbers() -> Result<()> {
   let expr = "<math> <mi>①</mi><mo>,</mo><mi>⑨</mi></math>";
   test("zh-tw", "SimpleSpeak", expr, "圈圈 1 逗號 圈圈 9")?;
+  let expr = "<math> <mi>❶</mi><mo>,</mo><mi>㊿</mi></math>";
+  test("zh-tw", "SimpleSpeak", expr, "黑圈圈1 逗號 圈圈50")?;
   let expr = "<math> <mi>⑴</mi><mo>,</mo><mi>⑼</mi></math>";
   test("zh-tw", "SimpleSpeak", expr, "括號圍繞 1 逗號 括號圍繞 9")?;
   let expr = "<math> <mi>⒈</mi><mo>,</mo><mi>⒐</mi></math>";
