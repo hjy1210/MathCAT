@@ -22,7 +22,7 @@
   replace:
   - test:
       if: "$Verbosity='Terse'"
-      then: [t: "dihv"]             # phrase('div' is short for divergence) -- note OneCore voices spell out "div"
+      then: [t: "div"]             # phrase('div' is short for divergence) -- note OneCore voices spell out "div"
       else: [t: "divergence"]      # phrase('divergence of' this function from the mean)
   - test:
       if: "not(IsNode(*[1], 'leaf'))"

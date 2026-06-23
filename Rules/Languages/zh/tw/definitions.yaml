@@ -255,7 +255,7 @@
     "or": "infix=or",
     "outer-product": "infix=outer product",
     "parallel-to": "infix=parallel to",
-    "perpendicular": "infix=perpendicular to",
+    "perpendicular": "infix= 垂直於",
     "plus": "infix=加 || prefix=正", # Prefix not tested
     "minus": "infix=減 || prefix=負", # Prefix not tested
     "plus-or-minus": "infix=plus or minus",
