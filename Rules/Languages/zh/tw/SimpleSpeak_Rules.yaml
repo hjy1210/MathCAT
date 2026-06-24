@@ -105,9 +105,9 @@
   - "                 *[1][self::m:mn] and *[2][.='\u2062'] and BaseNode(*[3])[contains(@data-intent-property, ':unit')] ) ] and"
   - "BaseNode(*[2])[contains(@data-intent-property, ':unit')] "
   replace:
+  - x: "*[1]"
   - t: "每"      # phrase('5 meters 'per' second)
   - x: "*[2]"
-  - x: "*[1]"
 
 - name: simple
   # don't include nested fractions. E.g, fraction a plus b over c + 1 end fraction" is ambiguous

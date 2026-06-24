@@ -10,7 +10,7 @@
 #   for readability, spaces can be used around any of the delimiter characters
 # Note: if there are multiple fixities, the first one is used if the fixity is not given in the intent
 - IntentMappings: {
-    "binomial": "infix=binomial; 選; end binomial",
+    "binomial": "infix=; 選; ",
 
     ### Functions and Inverses
     # "closed-interval": "other=closed-interval; from,to; end closed-interval",
