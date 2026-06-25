@@ -43,7 +43,7 @@
       else: [pause: short]     # pause: short
   - test:
       if: "not(IsNode(*[1], 'leaf')) and $Impairment = 'Blindness'"
-      then: [t: "結束根號", pause: medium]  # phrase(start the square root of x 'end of root')
+      then: [T: "結束根號", pause: medium]  # phrase(start the square root of x 'end of root')
       else: [pause: short]
 
 - name: default
@@ -61,7 +61,7 @@
         then: [T: "平方根"]        # phrase(the 'square root' of x)
       - else_if: "*[2][.='3']"
         then: [T: "立方根"]        # phrase(the 'cube root' of x)
-      - else: [x: "*[2]", t: "次方根"]      # phrase(the square 'root' of 25)
+      - else: [x: "*[2]", T: "次方根"]      # phrase(the square 'root' of 25)
       else:
       - test:
           if: "*[2][self::m:mi][string-length(.)=1]"
@@ -106,7 +106,7 @@
   - "BaseNode(*[2])[contains(@data-intent-property, ':unit')] "
   replace:
   - x: "*[1]"
-  - t: "每"      # phrase('5 meters 'per' second)
+  - T: "每"      # phrase('5 meters 'per' second)
   - x: "*[2]"
 
 - name: simple

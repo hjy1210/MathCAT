@@ -2522,19 +2522,19 @@
  - "㍸": [T: "平方分米"]                            	#  0x3378	(en: 'decimeters squared', google translation)
  - "㍹": [T: "立方分米"]                              	#  0x3379	(en: 'decimeters cubed', google translation)
  - "㍺": [t: "樂器單元"]                             	#  0x337a	(en: 'instrumental units', google translation)
- - "㎀": [t: "皮安培"]                         	#  0x3380	(google translation)
- - "㎁": [t: "奈安培"]                              	#  0x3381	(en: 'nanoamps', google translation)
- - "㎂": [t: "微安培"]                               	#  0x3382	(en: 'microamps', google translation)
- - "㎃": [t: "毫安培"]                               	#  0x3383	(en: 'milliamps', google translation)
+ - "㎀": [T: "皮安培"]                         	#  0x3380	(google translation)
+ - "㎁": [T: "奈安培"]                              	#  0x3381	(en: 'nanoamps', google translation)
+ - "㎂": [T: "微安培"]                               	#  0x3382	(en: 'microamps', google translation)
+ - "㎃": [T: "毫安培"]                               	#  0x3383	(en: 'milliamps', google translation)
  - "㎄": [T: "千安培"]                             	#  0x3384	(en: 'kiloamps', google translation)
  - "㎅": [T: "KB"]                              	#  0x3385	(en: 'kilobytes', google translation)
  - "㎆": [T: "MB"]                              	#  0x3386	(en: 'megabytes', google translation)
  - "㎇": [T: "GB"]                             	#  0x3387	(en: 'gigabytes', google translation)
  - "㎈": [T: "卡"]                              	#  0x3388	(en: 'calories', google translation)
  - "㎉": [T: "大卡"]                               	#  0x3389	(en: 'kilocalories', google translation)
- - "㎊": [t: "皮法拉"]                       	#  0x338a	(google translation)
- - "㎋": [t: "奈法拉"]                              	#  0x338b	(en: 'nanofarads', google translation)
- - "㎌": [t: "微法拉"]                              	#  0x338c	(en: 'microfarads', google translation)
+ - "㎊": [T: "皮法拉"]                       	#  0x338a	(google translation)
+ - "㎋": [T: "奈法拉"]                              	#  0x338b	(en: 'nanofarads', google translation)
+ - "㎌": [T: "微法拉"]                              	#  0x338c	(en: 'microfarads', google translation)
  - "㎍": [T: "微克"]                               	#  0x338d	(en: 'micrograms', google translation)
  - "㎎": [T: "毫克"]                               	#  0x338e	(en: 'milligrams', google translation)
  - "㎏": [T: "公斤"]                               	#  0x338f	(en: 'kilograms', google translation)
@@ -2542,12 +2542,12 @@
  - "㎑": [T: "千赫"]                               	#  0x3391	(en: 'kilohertz', google translation)
  - "㎒": [T: "百萬赫"]                               	#  0x3392	(en: 'megahertz', google translation)
  - "㎓": [T: "吉赫"]                             	#  0x3393	(en: 'gigahertz', google translation)
- - "㎔": [t: "兆赫"]                        	#  0x3394	(google translation)
+ - "㎔": [T: "兆赫"]                        	#  0x3394	(google translation)
  - "㎕": [T: "微升"]                               	#  0x3395	(en: 'microliters', google translation)
  - "㎖": [T: "毫升"]                               	#  0x3396	(en: 'milliliters', google translation)
- - "㎗": [t: "分升"]                              	#  0x3397	(en: 'deciliters', google translation)
+ - "㎗": [T: "分升"]                              	#  0x3397	(en: 'deciliters', google translation)
  - "㎘": [T: "公秉"]                               	#  0x3398	(en: 'kiloliters', google translation)
- - "㎙": [t: "飛米"]                      	#  0x3399	(google translation)
+ - "㎙": [T: "飛米"]                      	#  0x3399	(google translation)
  - "㎚": [T: "奈米"]                               	#  0x339a	(en: 'nanometers', google translation)
  - "㎛": [T: "微米"]                               	#  0x339b	(en: 'micrometers', google translation)
  - "㎜": [T: "毫米"]                               	#  0x339c	(en: 'millimeters', google translation)
@@ -2563,59 +2563,59 @@
  - "㎦": [T: "立方公里"]                            	#  0x33a6	(en: 'kilometers cubed', google translation)
  - "㎧": [T: "公尺/秒"]                              	#  0x33a7	(en: 'meters per second', google translation)
  - "㎨": [T: "公尺/平方秒"]                          	#  0x33a8	(en: 'meters per second squared', google translation)
- - "㎩": [t: "帕"]                             	#  0x33a9	(en: 'pascals', google translation)
- - "㎪": [t: "千帕"]                      	#  0x33aa	(google translation)
- - "㎫": [t: "百萬帕"]                               	#  0x33ab	(en: 'megapascals', google translation)
- - "㎬": [t: "吉帕"]                      	#  0x33ac	(google translation)
+ - "㎩": [T: "帕"]                             	#  0x33a9	(en: 'pascals', google translation)
+ - "㎪": [T: "千帕"]                      	#  0x33aa	(google translation)
+ - "㎫": [T: "百萬帕"]                               	#  0x33ab	(en: 'megapascals', google translation)
+ - "㎬": [T: "吉帕"]                      	#  0x33ac	(google translation)
  - "㎭": [T: "弳"]                              	#  0x33ad	(en: 'rads', google translation)
  - "㎮": [T: "弳/秒"]                            	#  0x33ae	(en: 'rads per second', google translation)
  - "㎯": [T: "弳/平方秒"]                          	#  0x33af	(en: 'rads per second squared', google translation)
- - "㎰": [t: "皮秒"]                       	#  0x33b0	(en: 'picoseconds', google translation)
- - "㎱": [t: "奈秒"]                               	#  0x33b1	(en: 'nanoseconds', google translation)
+ - "㎰": [T: "皮秒"]                       	#  0x33b0	(en: 'picoseconds', google translation)
+ - "㎱": [T: "奈秒"]                               	#  0x33b1	(en: 'nanoseconds', google translation)
  - "㎲": [T: "微秒"]                               	#  0x33b2	(en: 'microseconds', google translation)
  - "㎳": [T: "毫秒"]                               	#  0x33b3	(en: 'milliseconds', google translation)
- - "㎴": [t: "皮伏特"]                        	#  0x33b4	(google translation)
- - "㎵": [t: "奈伏特"]                              	#  0x33b5	(en: 'nanovolts', google translation)
+ - "㎴": [T: "皮伏特"]                        	#  0x33b4	(google translation)
+ - "㎵": [T: "奈伏特"]                              	#  0x33b5	(en: 'nanovolts', google translation)
  - "㎶": [T: "微伏特"]                               	#  0x33b6	(en: 'microvolts', google translation)
  - "㎷": [T: "毫伏特"]                               	#  0x33b7	(en: 'millivolts', google translation)
  - "㎸": [T: "千伏特"]                              	#  0x33b8	(en: 'kilovolts', google translation)
- - "㎹": [t: "百萬伏特"]                        	#  0x33b9	(google translation)
- - "㎺": [t: "皮瓦"]                        	#  0x33ba	(google translation)
- - "㎻": [t: "奈瓦"]                              	#  0x33bb	(en: 'nanowatts', google translation)
- - "㎼": [t: "微瓦"]                       	#  0x33bc	(google translation)
+ - "㎹": [T: "百萬伏特"]                        	#  0x33b9	(google translation)
+ - "㎺": [T: "皮瓦"]                        	#  0x33ba	(google translation)
+ - "㎻": [T: "奈瓦"]                              	#  0x33bb	(en: 'nanowatts', google translation)
+ - "㎼": [T: "微瓦"]                       	#  0x33bc	(google translation)
  - "㎽": [T: "毫瓦"]                               	#  0x33bd	(en: 'milliwatts', google translation)
  - "㎾": [T: "千瓦"]                               	#  0x33be	(en: 'kilowatts', google translation)
  - "㎿": [T: "百萬瓦"]                               	#  0x33bf	(en: 'megawatts', google translation)
  - "㏀": [T: "千歐姆"]                               	#  0x33c0	(en: 'kilo-ohms', google translation)
  - "㏁": [T: "百萬歐姆"]                         	#  0x33c1	(google translation)
  - "㏂": [t: "attometers"]                       	#  0x33c2	(google translation)
- - "㏃": [t: "貝克"]                             	#  0x33c3	(en: 'becquerels', google translation)
+ - "㏃": [T: "貝克"]                             	#  0x33c3	(en: 'becquerels', google translation)
  - "㏄": [T: "cc"]                             	#  0x33c4	(en: 'cubic centimeters', google translation)
- - "㏅": [t: "燭光"]                               	#  0x33c5	(en: 'candelas', google translation)
- - "㏆": [t: "庫侖/公斤"]                            	#  0x33c6	(en: 'coulombs per kilogram', google translation)
+ - "㏅": [T: "燭光"]                               	#  0x33c5	(en: 'candelas', google translation)
+ - "㏆": [T: "庫侖/公斤"]                            	#  0x33c6	(en: 'coulombs per kilogram', google translation)
  - "㏇": [t: "cardiac output"]                              	#  0x33c7	(en: 'cardiac output', google translation)
  - "㏈": [T: "分貝"]                               	#  0x33c8	(en: 'decibels', google translation)
- - "㏉": [t: "戈雷"]                               	#  0x33c9	(en: 'grays', google translation)
- - "㏊": [t: "公頃"]                               	#  0x33ca	(en: 'hectares', google translation)
+ - "㏉": [T: "戈雷"]                               	#  0x33c9	(en: 'grays', google translation)
+ - "㏊": [T: "公頃"]                               	#  0x33ca	(en: 'hectares', google translation)
  - "㏋": [T: "馬力"]                               	#  0x33cb	(en: 'horsepower', google translation)
  - "㏌": [T: "英寸"]                               	#  0x33cc	(en: 'inches', google translation)
  - "㏍": [t: "kilokelvins"]                      	#  0x33cd	(google translation)
  - "㏎": [T: "公里"]                               	#  0x33ce	(en: 'kilometers', google translation)
- - "㏏": [t: "節"]                                	#  0x33cf	(en: 'knots', google translation)
+ - "㏏": [T: "節"]                                	#  0x33cf	(en: 'knots', google translation)
  - "㏐": [T: "流明"]                               	#  0x33d0	(en: 'lumens', google translation)
  - "㏑": [T: "自然對數"]                             	#  0x33d1	(en: 'natural log', google translation)
  - "㏒": [T: "對數"]                               	#  0x33d2	(en: 'logarithm', google translation)
- - "㏓": [t: "勒克斯"]                              	#  0x33d3	(en: 'lux', google translation)
- - "㏔": [t: "毫邦"]                       	#  0x33d4	(google translation)
- - "㏕": [t: "密耳"]                              	#  0x33d5	(en: 'mills', google translation)
- - "㏖": [t: "莫耳"]                                	#  0x33d6	(en: 'moles', google translation)
+ - "㏓": [T: "勒克斯"]                              	#  0x33d3	(en: 'lux', google translation)
+ - "㏔": [T: "毫邦"]                       	#  0x33d4	(google translation)
+ - "㏕": [T: "密耳"]                              	#  0x33d5	(en: 'mills', google translation)
+ - "㏖": [T: "莫耳"]                                	#  0x33d6	(en: 'moles', google translation)
  - "㏗": [T: "pH"]                              	#  0x33d7	(google translation)
  - "㏘": [t: "picometers"]                               	#  0x33d8	(en: 'picometers', google translation)
  - "㏙": [T: "PPM"]                             	#  0x33d9	(en: 'parts per million', google translation)
- - "㏚": [t: "拍侖琴"]                    	#  0x33da	(google translation)
- - "㏛": [t: "立弳"]                            	#  0x33db	(en: 'steradians', google translation)
- - "㏜": [t: "西弗"]                         	#  0x33dc	(google translation)
- - "㏝": [t: "韋伯"]                               	#  0x33dd	(en: 'webers', google translation)
+ - "㏚": [T: "拍侖琴"]                    	#  0x33da	(google translation)
+ - "㏛": [T: "立弳"]                            	#  0x33db	(en: 'steradians', google translation)
+ - "㏜": [T: "西弗"]                         	#  0x33dc	(google translation)
+ - "㏝": [T: "韋伯"]                               	#  0x33dd	(en: 'webers', google translation)
  - "㏞": [T: "伏特/公尺"]                              	#  0x33de	(en: 'volts per meter', google translation)
  - "㏟": [T: "安培/公尺"]                           	#  0x33df	(en: 'amps per meter', google translation)
  - "㏿": [T: "加侖"]                               	#  0x33ff	(en: 'gallons', google translation)
@@ -3206,28 +3206,28 @@
  - "𝓐-𝓩":                                       	#  0x1d4d0 - 0x1d4e9
     - test:
         if: "not($IgnoreBold)"
-        then: [t: "粗草體"]
-        else: [t: "草體"]
+        then: [T: "粗草體"]
+        else: [T: "草體"]
     - SPELL: "translate('.', '𝓐𝓑𝓒𝓓𝓔𝓕𝓖𝓗𝓘𝓙𝓚𝓛𝓜𝓝𝓞𝓟𝓠𝓡𝓢𝓣𝓤𝓥𝓦𝓧𝓨𝓩', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"
 
  - "-":                                       	#  0xf140 - 0xf159
     - test:
         if: "not($IgnoreBold)"
-        then: [t: "粗草體"]
-        else: [t: "草體"]
+        then: [T: "粗草體"]
+        else: [T: "草體"]
     - SPELL: "translate('.', '', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"
 
  - "𝓪-𝔃":                                       	#  0x1d4ea - 0x1d503
     - test:
         if: "not($IgnoreBold)"
-        then: [t: "粗草體"]
-        else: [t: "草體"]
+        then: [T: "粗草體"]
+        else: [T: "草體"]
     - SPELL: "translate('.', '𝓪𝓫𝓬𝓭𝓮𝓯𝓰𝓱𝓲𝓳𝓴𝓵𝓶𝓷𝓸𝓹𝓺𝓻𝓼𝓽𝓾𝓿𝔀𝔁𝔂𝔃', 'abcdefghijklmnopqrstuvwxyz')"
  - "-":                                       	#  0xf15a - 0xf173
     - test:
         if: "not($IgnoreBold)"
-        then: [t: "粗草體"]
-        else: [t: "草體"]
+        then: [T: "粗草體"]
+        else: [T: "草體"]
     - SPELL: "translate('.', '', 'abcdefghijklmnopqrstuvwxyz')"
 
  - "-":                                       	#  0xf180 - 0xf199
@@ -3759,15 +3759,15 @@
             - if: "$SpeechStyle != 'ClearSpeak'"
               then_test:
                   if: "$DefaultToGiven"
-                  then: [t: "給定"]
-                  else: [t: "豎線"]
+                  then: [T: "給定"]
+                  else: [T: "豎線"]
             - else_if: "not(preceding-sibling::*) or not(following-sibling::*)"
-              then: [t: "豎線"]
+              then: [T: "豎線"]
             - else_if: "$ClearSpeak_VerticalLine = 'SuchThat'"
-              then: [t: "such that"]
+              then: [T: "滿足"]
             - else_if: "$ClearSpeak_VerticalLine = 'Given' or $DefaultToGiven"
-              then: [t: "給定"] 
-            - else: [t: "整除"]                   
+              then: [T: "給定"] 
+            - else: [T: "整除"]                   
  - "～": [t: "tilde"]                               # 0xff5e
  - "￢": [t: "not"]                                 # 0xffe2
  - "￩": [t: "left arrow"]                           # 0xffe9

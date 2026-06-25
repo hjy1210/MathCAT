@@ -130,7 +130,7 @@
     - test:
         if: "ancestor-or-self::*[contains(@data-intent-property, ':literal:')]"
         then: [t: "slash"]                        # 0x2f
-        else: [t: "除以"]                   # 0x2f
+        else: [T: "除以"]                   # 0x2f
 
  - ":": [T: "冒號"]                               	#  0x3a	(en: 'colon')
  - ";": [T: "分號"]                               	#  0x3b	(en: 'semicolon', google translation)
@@ -182,7 +182,7 @@
         replace:
          - test:
             - if: "ancestor-or-self::*[contains(@data-intent-property, ':literal:')]"
-              then: [t: "豎線"]
+              then: [T: "豎線"]
             - else_if: "$SpeechStyle != 'ClearSpeak'"
               then_test:
                 - if: "$DefaultToGiven"
@@ -227,14 +227,14 @@
         if: "$SpeechStyle = 'ClearSpeak'"
         then_test:
         - if: "$ClearSpeak_MultSymbolX = 'Auto'"
-          then: [t: "乘"]
+          then: [T: "乘"]
         - else_if: "$ClearSpeak_MultSymbolX = 'By'"
-          then: [t: "乘"]
+          then: [T: "乘"]
           else: [t: "cross"]
         else_test:
             if: "ancestor-or-self::*[contains(@data-intent-property, ':literal:')]"
             then: [t: "cross"]
-            else: [t: "乘"]
+            else: [T: "乘"]
 
  - "÷": [T: "除以"]                               	#  0xf7	(en: 'divided by')
  - "̀": [t: "grave accent embellishment"]                          	#  0x300	(en: 'grave accent embellishment', google translation)
@@ -386,7 +386,7 @@
         - test:
             if: "$Verbosity!='Terse' and not(ancestor::*[self::m:set])"    # "the set x is an element of ..." sounds bad"
             then: [t: ""]
-        - t: "屬於"   # 	(en: 'an element of', google translation)
+        - T: "屬於"   # 	(en: 'an element of', google translation)
         # Several options for speaking elements in ClearSpeak -- they split between being inside a set or not and then the option
         else_test:
             if: "../../self::m:set or ../../../self::m:set"	#  inside a set
@@ -414,7 +414,7 @@
         - test: 
             if: "$Verbosity!='Terse'"
             then: [t: ""]
-        - t: "不屬於"          # 	(en: 'is not an element of', google translation)
+        - T: "不屬於"          # 	(en: 'is not an element of', google translation)
         # Several options for speaking elements in ClearSpeak -- they split between being inside a set or not and then the option
         else_test:
             if: "../../self::m:set or ../../../self::m:set"	#  inside a set
@@ -441,7 +441,7 @@
         - test: 
             if: "$Verbosity!='Terse' and not(ancestor::*[self::m:set])"    # "the set x is an element of ..." sounds bad"
             then: [t: ""]
-        - t: "屬於"            # 	(en: 'is an element of', google translation)
+        - T: "屬於"            # 	(en: 'is an element of', google translation)
         # Several options for speaking elements in ClearSpeak -- they split between being inside a set or not and then the option
         else_test:
             if: "../../self::m:set or ../../../self::m:set"	#  inside a set
@@ -487,12 +487,12 @@
  - "∥":                                         	#  0x2225
      - test:
          if: "ancestor-or-self::*[contains(@data-intent-property, ':literal:')]"
-         then: [t: "雙豎線"]
+         then: [T: "雙豎線"]
          else:
          - test:
               if: "$Verbosity!='Terse'"
               then: [t: ""]
-         - t: "平行"
+         - T: "平行"
  - "∦":                                         	#  0x2226
      - test: 
          if: "$Verbosity!='Terse'"

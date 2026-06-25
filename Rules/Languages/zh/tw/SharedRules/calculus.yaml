@@ -22,8 +22,8 @@
   replace:
   - test:
       if: "$Verbosity='Terse'"
-      then: [t: "div"]             # phrase('div' is short for divergence) -- note OneCore voices spell out "div"
-      else: [t: "divergence"]      # phrase('divergence of' this function from the mean)
+      then: [T: "div"]             # phrase('div' is short for divergence) -- note OneCore voices spell out "div"
+      else: [T: "divergence"]      # phrase('divergence of' this function from the mean)
   - test:
       if: "not(IsNode(*[1], 'leaf'))"
       then: [pause: short]
@@ -33,7 +33,7 @@
   tag: curl
   match: "count(*) = 1"
   replace:
-  - t: "curl"      # phrase(the 'curl of' a field)
+  - T: "curl"      # phrase(the 'curl of' a field)
   - test:
       if: "$Verbosity!='Terse'"
       then: [t: ""]             # phrase(function 'of' one variable) -- note OneCore voices spell out "div"
@@ -48,8 +48,8 @@
   replace:
   - test:
       if: "$Verbosity!='Terse'"
-      then: [t: "gradient"]      # phrase(the hill has a 'gradient of' five percent)
-      else: [t: "del"]      # phrase(the delete key is labeled 'del')
+      then: [T: "gradient"]      # phrase(the hill has a 'gradient of' five percent)
+      else: [T: "del"]      # phrase(the delete key is labeled 'del')
   - test:
       if: "not(IsNode(*[1], 'leaf'))"
       then: [pause: short]
