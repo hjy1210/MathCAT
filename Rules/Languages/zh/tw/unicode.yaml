@@ -76,7 +76,7 @@
  - "\"": [T: "引號"]                              	#  0x22	(en: 'quotation mark', google translation)
  - "#": [T: "數字"]                               	#  0x23	(en: 'number', google translation)
  - "$": [T: "美元"]                               	#  0x24	(en: 'dollars', google translation)
- - "%": [T: "百分"]                               	#  0x25	(en: 'percent', google translation)
+ - "%": [T: "百分點"]                               	#  0x25	(en: 'percent', google translation)
  - "&": [T: "ampersand"]                           	#  0x26	(en: 'ampersand', google translation)
  - "'": [T: "單引號"]                              	#  0x27	(en: 'apostrophe')
  - "(":                                         	#  0x28
@@ -512,7 +512,7 @@
          then: [T: ""]                         	# 	(en: 'is', google translation)
      - T: "比"                                   	# 	(en: 'to')
  - "∷": [T: "當成"]                               	#  0x2237	(en: 'as')
- - "∼": [T: "波浪符"]                              	#  0x223c	(en: 'varies with')
+ - "∼": [T: "相似"]                              	#  0x223c	(en: 'varies with')
  - "∽": [T: "反波浪符"]                             #  0x223d	(en: 'reversed tilde')
  - "∾":                                         	#  0x223e
      - test: 
