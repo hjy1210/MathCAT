@@ -2825,7 +2825,7 @@ impl<'c, 's:'c, 'r, 'm:'c> SpeechRulesWithContext<'c, 's,'m> {
                     let unicode_full = rules.unicode_full.borrow();
                     for ch in unicode.keys() {
                         if unicode_full.get(ch).is_some() {
-                            error!("*** Character '{}' (0x{:X}) is repeated in both short and full unicode tables", char::from_u32(*ch).unwrap(), *ch as u32);
+                            error!("*** Character '{}' (0x{:X}) is repeated in both short and full unicode tables", *ch, *ch);
                         }
                     }
                 }
