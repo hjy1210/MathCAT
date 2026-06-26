@@ -2829,7 +2829,7 @@ impl<'c, 's:'c, 'r, 'm:'c> SpeechRulesWithContext<'c, 's,'m> {
                   return Ok(self.escape_string_for_safety(String::from(ch)));
                 } else {
                   let ch_as_int = ch as u32;
-                  if '\u{2800}' <= ch && ch <= '\u{28ff}' {   // braille -- leave as braille
+                  if ('\u{2800}'..='\u{28ff}').contains(&ch) {   // braille -- leave as braille
                       return Ok(self.escape_string_for_safety(String::from(ch)));
                   } else {                                    // Emulate what NVDA does: generate (including single quotes) '\xhhhh' or '\yhhhhhh'
                       let prefix_indicator = if ch_as_int < 1<<16 {'x'} else {'y'};
